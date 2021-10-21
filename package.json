@@ -1,0 +1,22 @@
+{
+  "name": "hapi-websocket-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/basic": "^6.0.0",
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.2.1",
+    "dotenv": "^10.0.0",
+    "hapi-plugin-websocket": "^2.3.6",
+    "nodemon": "^2.0.14",
+    "ws": "^8.2.3"
+  }
+}
