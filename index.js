@@ -54,7 +54,7 @@ require('dotenv').config();
     server.route({
         method: "POST", path: "/baz",
         config: {
-            plugins: { websocket: { only: true, autoping: 30 * 1000 } }
+            plugins: { websocket: { only: true, autoping: 30 * 1000, initially: true } }
         },
         handler: (request, h) => {
             return { at: "baz", seen: request.payload }
@@ -90,6 +90,7 @@ require('dotenv').config();
         },
         handler: (request, h) => {
             let { initially, ws } = request.websocket()
+            console.log(initially);
             if (initially) {
                 ws.send(JSON.stringify({ cmd: "HELLO", arg: request.auth.credentials.username }))
                 return ""
