@@ -57,6 +57,11 @@ require('dotenv').config();
             plugins: { websocket: { only: true, autoping: 30 * 1000, initially: true } }
         },
         handler: (request, h) => {
+            console.log(initially);
+            if (initially) {
+                ws.send(JSON.stringify({ cmd: "HANDLING INIT" }))
+                return ""
+            }
             return { at: "baz", seen: request.payload }
         }
     })
@@ -90,7 +95,6 @@ require('dotenv').config();
         },
         handler: (request, h) => {
             let { initially, ws } = request.websocket()
-            console.log(initially);
             if (initially) {
                 ws.send(JSON.stringify({ cmd: "HELLO", arg: request.auth.credentials.username }))
                 return ""
