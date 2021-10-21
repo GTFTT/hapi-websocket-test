@@ -57,6 +57,7 @@ require('dotenv').config();
             plugins: { websocket: { only: true, autoping: 30 * 1000, initially: true } }
         },
         handler: (request, h) => {
+            let { initially, ws } = request.websocket()
             console.log(initially);
             if (initially) {
                 ws.send(JSON.stringify({ cmd: "HANDLING INIT" }))
