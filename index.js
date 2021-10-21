@@ -61,6 +61,7 @@ require('dotenv').config();
             console.log(initially);
             if (initially) {
                 ws.send(JSON.stringify({ cmd: "HANDLING INIT" }))
+                ws.close(); //Close connection
                 return ""
             }
             return { at: "baz", seen: request.payload }
